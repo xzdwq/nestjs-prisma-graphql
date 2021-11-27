@@ -23,6 +23,10 @@ schema: public
 ```bash
 npm run migrate:dev
 ```
+<p align="center">
+  <img src="assets/ER.png">
+</p>
+
 Если миграций нет (в `./prisma/` нет папки `migrations`), то необходимо их создать:  
 1. Опишите будущие таблицы в `./prisma/schema.prisma`  
 2. Проинициализируйте миграцию  
