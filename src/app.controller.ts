@@ -5,13 +5,10 @@ import { AppService } from '@src/app.service';
 
 @Controller()
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly prisma: PrismaService
-  ) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   async getHello() {
-    return await this.prisma.post.findMany()
+    return this.appService.getHello();
   }
 }

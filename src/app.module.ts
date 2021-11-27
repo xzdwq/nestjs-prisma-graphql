@@ -6,6 +6,8 @@ import { APP_FILTER } from '@nestjs/core';
 import configuration from '@cfg/configuration';
 import { AppController } from '@src/app.controller';
 import { AppService } from '@src/app.service';
+import { CategoriesModule } from '@src/categories/categories.module';
+import { ProductsModule } from '@src/products/products.module';
 
 @Module({
   imports: [
@@ -34,7 +36,9 @@ import { AppService } from '@src/app.service';
           explicitConnect: config.get('database').explicit
         }
       }
-    })
+    }),
+    CategoriesModule,
+    ProductsModule
   ],
   controllers: [AppController],
   providers: [
