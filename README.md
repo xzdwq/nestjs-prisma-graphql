@@ -58,7 +58,7 @@ npm run migrate:dev
 ## Запуск приложения
 Из корня приложения (./revoluterra-test)
 ```bash
-npm run watch
+npm run dev
 ```
 Команда запустит backend.  
 Обращение к API endpoints бэка будет доступно по запросу `localhost:3000/api/{:name}`  

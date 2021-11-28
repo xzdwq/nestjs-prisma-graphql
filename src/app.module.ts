@@ -30,7 +30,7 @@ import { ProductsModule } from '@src/products/products.module';
       resolvers: { DateTime: GraphQLDateTime },
       subscriptions: {
         'graphql-ws': true,
-        'subscriptions-transport-ws': true,
+        'subscriptions-transport-ws': true
       }
     }),
     PrismaModule.forRootAsync({

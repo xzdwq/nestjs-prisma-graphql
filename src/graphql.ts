@@ -16,7 +16,7 @@ export class Categories {
     id?: Nullable<number>;
     name?: Nullable<string>;
     slug?: Nullable<string>;
-    products?: Nullable<string>;
+    products?: Nullable<Products[]>;
 }
 
 export abstract class IQuery {
@@ -25,10 +25,21 @@ export abstract class IQuery {
     abstract category(id: number): Nullable<Categories> | Promise<Nullable<Categories>>;
 
     abstract totalCategories(): number | Promise<number>;
+
+    abstract products(orderBy?: Nullable<OrderByParams>): Nullable<Products>[] | Promise<Nullable<Products>[]>;
+
+    abstract product(id: number): Nullable<Products> | Promise<Nullable<Products>>;
+
+    abstract totalProducts(): number | Promise<number>;
 }
 
-export class Result {
-    total: number;
+export class Products {
+    id?: Nullable<number>;
+    category?: Nullable<Categories[]>;
+    category_id?: Nullable<number>;
+    name?: Nullable<string>;
+    slug?: Nullable<string>;
+    price?: Nullable<number>;
 }
 
 export type DateTime = any;

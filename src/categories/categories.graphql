@@ -4,7 +4,7 @@ type Categories {
   id: Int
   name: String
   slug: String
-  products: String
+  products: [Products!]
 }
 
 input OrderByParams {
@@ -16,8 +16,4 @@ type Query {
   categories(orderBy: OrderByParams): [Categories]!
   category(id: Int!): Categories
   totalCategories: Int!
-}
-
-type Result {
-  total: Int!
 }

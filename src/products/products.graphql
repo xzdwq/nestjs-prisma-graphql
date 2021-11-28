@@ -1,0 +1,21 @@
+scalar DateTime
+
+type Products {
+  id: Int
+  category: [Categories!]
+  category_id: Int
+  name: String
+  slug: String
+  price: Int
+}
+
+input OrderByParams {
+  field: String
+  direction: String
+}
+
+type Query {
+  products(orderBy: OrderByParams): [Products]!
+  product(id: Int!): Products
+  totalProducts: Int!
+}
