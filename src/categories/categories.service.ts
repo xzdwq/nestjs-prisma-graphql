@@ -8,9 +8,6 @@ export class CategoriesService {
   async getCategories() {
     const categories = await this.prisma.categories.findMany()
 
-    return {
-      success: true,
-      data: categories
-    }
+    return categories
   }
 }

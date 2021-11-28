@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+import { GraphQLDateTime } from 'graphql-scalars';
 import { PrismaModule, PrismaClientExceptionFilter } from 'nestjs-prisma';
 import { APP_FILTER } from '@nestjs/core';
 
@@ -19,6 +22,16 @@ import { ProductsModule } from '@src/products/products.module';
       load: [
         configuration
       ],
+    }),
+    GraphQLModule.forRoot({
+      playground: false,
+      plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      typePaths: ['./**/*.graphql'],
+      resolvers: { DateTime: GraphQLDateTime },
+      subscriptions: {
+        'graphql-ws': true,
+        'subscriptions-transport-ws': true,
+      }
     }),
     PrismaModule.forRootAsync({
       isGlobal: true,
