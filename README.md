@@ -29,24 +29,26 @@ npm run migrate:dev
 
 <details>
   <summary>Если нет миграций</summary>
-Если миграций нет (в `./prisma/` нет папки `migrations`), то необходимо их создать:  
-1. Опишите будущие таблицы в `./prisma/schema.prisma`  
-2. Проинициализируйте миграцию  
-```bush
-npm run migrate:dev:create
-```  
-(это создаст файл миграции, но не применит его)  
-3. Откройте созданный `migration.sql` файл из вновь созданной миграции (`./prisma/migrations/{num}_{name}/migration.sql`)  
-4. Допишите/измените свои исполняемые SQL запросы, например  
-```bush
-INSERT INTO "Post" ("title", "content", "published", "authorId") VALUES
-  ('test title', 'test text', true, 2);
-```    
-5. Примените миграцию  
-```bush
-npm run migrate:dev
-```  
-6. В результате создадуться таблицы и вставятся данные в БД  
+  <p>
+  Если миграций нет (в `./prisma/` нет папки `migrations`), то необходимо их создать:  
+  1. Опишите будущие таблицы в `./prisma/schema.prisma`  
+  2. Проинициализируйте миграцию  
+  ```bush
+  npm run migrate:dev:create
+  ```  
+  (это создаст файл миграции, но не применит его)  
+  3. Откройте созданный `migration.sql` файл из вновь созданной миграции (`./prisma/migrations/{num}_{name}/migration.sql`)  
+  4. Допишите/измените свои исполняемые SQL запросы, например  
+  ```bush
+  INSERT INTO "Post" ("title", "content", "published", "authorId") VALUES
+    ('test title', 'test text', true, 2);
+  ```    
+  5. Примените миграцию  
+  ```bush
+  npm run migrate:dev
+  ```  
+  6. В результате создадуться таблицы и вставятся данные в БД  
+  </p>
 </details>
 
 ## Запуск приложения
